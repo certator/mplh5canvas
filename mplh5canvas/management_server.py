@@ -133,9 +133,10 @@ class H5Manager(object):
         RequestHandler.server_port = str(self.port)
         self.url = "http://%s:%i" % (self.ip, self.port)
         self._request_handlers = {}
-        print "===================================================================================="
-        print "Management interface active. Browse to %s to view plots." % self.url
-        print "===================================================================================="
+        print "============================================================================================"
+        print "Management interface active. Browse to %s to view all plots." % self.url
+        print "Alternatively, browse to %s/figure1 etc. to view individual figures." % self.url
+        print "============================================================================================"
         sys.stdout.flush()
 
     def _external_ip(self, preferred_prefixes=('eth', 'en')):
