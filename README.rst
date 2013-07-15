@@ -17,10 +17,8 @@ Features
 --------
 
 - Pure Python
-- Uses mod_pywebsocket to provide multi browser support through multiple websocket standards
-- Requires web browser with Canvas and WebSocket support (Chrome 4+, Safari 5+ (OSX and IOS)
-  work out of the box. Opera 11+ works after enabling WebSockets in preferences. Firefox
-  is not supported and Internet Explorer will never be supported.)
+- Uses mod_pywebsocket to provide multi-browser support through multiple websocket standards
+- Requires up-to-date web browser with Canvas and WebSocket support (since the start of 2013 the latest versions of all major browsers should work out of the box - see `Wiki`_ page for more details)
 - Designed with animation and interactivity in mind (resizable, zoomable,
   clickable regions, etc)
 - Simple plots (e.g. a 2048-point line plot) can be animated at around 60 frames
@@ -35,6 +33,6 @@ Screenshot
 .. image:: http://mplh5canvas.googlecode.com/files/screenshot.png
    :height: 600px
 
-.. _WebSocket: http://en.wikipedia.org/wiki/WebSockets
+.. _WebSocket: http://en.wikipedia.org/wiki/WebSocket
 .. _Canvas: http://en.wikipedia.org/wiki/Canvas_element
 .. _Wiki: http://code.google.com/p/mplh5canvas/wiki/Installation

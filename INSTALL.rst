@@ -9,35 +9,43 @@ as it continues to evolve.
 
 The current base system requirements prior to installation are:
 
-* Python 2.5 or newer (2.4 should also be OK, but has not been tested)
+* Python 2.5, 2.6 or 2.7 (2.4 should also be OK, but has not been tested)
 * `Matplotlib`_ 0.99.1.1 or newer
 
-The web browser you use to display the plots must support Canvas and WebSockets
+If you want to make use of *easy_install* as suggested in the instructions below, you should install `setuptools`_. Alternatively you can use *pip* instead of *easy_install* by installing the `pip`_ Python package.
+
+The web browser you use to display the plots must support Canvas and WebSocket
 (see http://caniuse.com/#feat=websockets for a summary of current WebSocket
-support). The status quo for the main browsers in May 2011 is:
+support). The status quo for the major browsers in July 2013 is:
 
-* **Chrome 9.0+** works out of the box and is the target browser
+* **Chrome 9 and later** works out of the box and is the target browser (both desktop and mobile versions)
 
-* **Safari 5.0+** works out of the box (both OSX and IOS versions)
+* **Safari 5 and later** works out of the box (both Mac OS X and iOS versions)
 
-* **Firefox 4.0** works after unblocking WebSocket support:
+* **Firefox 4** works after unblocking WebSocket support:
 
     - Browse to the ``about:config`` preferences page and promise to be careful
     - Type ``websocket`` in the filter to find the right option
     - Double-click on ``network.websocket.override-security-block`` to set it to ``true``
 
-* **Firefox 5.0+** is not supported due to a custom websocket class.
+* **Firefox 5 to 10** is not supported due to a custom ``MozWebSocket`` class
 
-* **Opera 11.0+** works after unblocking WebSocket support:
+* **Firefox 11 and later** works out of the box
+
+* **Opera 11 to 12.02** works after unblocking WebSocket support:
 
     - Browse to the Preference Editor at the ``opera:config`` page
     - Type ``websocket`` in the "Quick find" search field to zoom in on the
       right option ("Enable WebSockets" under User Prefs)
     - Check the tickbox and click on the Save button
 
-* **Internet Explorer** is not supported
+* **Opera 12.10 and later** works out of the box
 
-Netifaces
+* **Internet Explorer 10 and later** should work out of the box but is untested
+
+* **Opera Mini** and **Android Browser** have no WebSocket support yet and are therefore not supported
+
+netifaces
 ^^^^^^^^^
 
 It is surprisingly difficult to make a good guess of the IP address of a user's
@@ -54,12 +62,12 @@ mod_pywebsocket
 ^^^^^^^^^^^^^^^
 
 This will be installed along with mplh5canvas if you follow the instructions below.
-However you can install it yourself::
+However, you can install it yourself::
 
     easy_install mod_pywebsocket
 
-The `PyPI`_ page may be out of data as we maintain this ourselves. The master
-repository for mod_pywebsocket is `pywebsocket`_.
+The `mod_pywebsocket PyPI`_ page may be out of date as we maintain this ourselves. The master
+repository for mod_pywebsocket is at `pywebsocket`_.
 
 Installation
 ------------
@@ -118,7 +126,9 @@ of PNGs.
 
 .. _pywebsocket: http://code.google.com/p/pywebsocket/
 .. _Matplotlib: http://matplotlib.sourceforge.net/
-.. _block it by default: http://hacks.mozilla.org/2010/12/websockets-disabled-in-firefox-4/
+.. _setuptools: https://pypi.python.org/pypi/setuptools
+.. _pip: http://www.pip-installer.org/
 .. _netifaces: http://alastairs-place.net/netifaces/
-.. _PyPI: http://pypi.python.org/pypi/mplh5canvas
-.. _virtualenv: http://pypi.python.org/pypi/virtualenv
+.. _mod_pywebsocket PyPI: https://pypi.python.org/pypi/mod_pywebsocket
+.. _PyPI: https://pypi.python.org/pypi/mplh5canvas
+.. _virtualenv: https://pypi.python.org/pypi/virtualenv
