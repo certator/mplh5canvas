@@ -114,6 +114,7 @@ class _StandaloneRequest(object):
 
         self._request_handler = request_handler
         self.connection = _StandaloneConnection(request_handler)
+        self.protocol = 'HTTP/1.1'
         self._use_tls = use_tls
 
     def get_uri(self):
