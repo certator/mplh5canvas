@@ -611,6 +611,8 @@ class FigureCanvasH5Canvas(FigureCanvasBase):
             self.send_frame(self._header + self._frame_extra)
 
     def parse_web_cmd(self, s):
+        if s is None:
+            raise ValueError("Received empty web command - connection probably closed on client side")
         try:
             action = s[1:s.find(" ")]
             args = s[s.find("args='")+6:-2].split(",")
