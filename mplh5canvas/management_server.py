@@ -54,6 +54,7 @@ class RequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         match = re.compile("\/(\d*)$").match(self.path)
         ports = self.h5m._figures.keys()
         ports.sort()
+        self.wfile.write(self.protocol_version + ' OK\n\n')
         if match is not None:
             req_layout = match.groups()[0]
             for port in ports:
