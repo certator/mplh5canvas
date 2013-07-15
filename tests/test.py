@@ -32,7 +32,7 @@ exclusions = [# mpl_examples/pylab_examples
              ]
 
 files = []
-p = os.listdir(options.dir+"/")
+p = os.listdir(options.dir + os.sep)
 if options.wildcard == "*": options.wildcard = ""
 while p:
     x = p.pop()
@@ -40,8 +40,8 @@ while p:
         files.append(x)
 
 if options.file:
-    options.dir = options.file[:options.file.rfind("/")]
-    files = [options.file[options.file.rfind("/")+1:]]
+    options.dir = os.path.dirname(options.file)
+    files = [os.path.basename(options.file)]
     print "Dir:",options.dir,",Files:",files
 
 if files == []:
@@ -66,7 +66,7 @@ for count, filename in enumerate(files):
     html += "<tr><th id='name_" + str(count) + "'>" + filename
     thtml += "<tr><th id='name_" + str(count) + "'>" + filename
     try:
-        execfile(options.dir + "/" + filename)
+        execfile(os.path.join(options.dir, filename))
         f = gcf()
         f.canvas.draw()
     except Exception, e:
@@ -96,7 +96,7 @@ for count, filename in enumerate(files):
             raise
 
     try:
-        f.canvas.print_png("./output/" + png_filename, dpi=f.dpi)
+        f.canvas.print_png(os.path.join(".", "output", png_filename), dpi=f.dpi)
         html += "<td><img src='%s' width='%dpx' height='%dpx' />" % (png_filename, w, h)
         thtml += "<td><img src='%s' width='%dpx' height='%dpx' />" % (png_filename, w, h)
     except Exception, e:
@@ -108,7 +108,7 @@ for count, filename in enumerate(files):
 
     try:
         svg_filename = filename[:-2] + "svg"
-        f.canvas.print_svg("./output/" + svg_filename, dpi=f.dpi)
+        f.canvas.print_svg(os.path.join(".", "output", svg_filename), dpi=f.dpi)
         html += "<td><img src='%s' width='%dpx' height='%dpx' />" % (svg_filename, w, h)
     except Exception, e:
         print "Failed to create SVG for %s. (%s)" % (filename, str(e))
@@ -136,9 +136,9 @@ function put_images() {
 html += pi +"</script><input type='button' onclick='put_images()' value='Put Images to server'>"
 html += "<input type='button' onclick='connect()' value='Connect'></body></html>"
 thtml += "</table></body></html>"
-f = open("output/test.html","w")
+f = open(os.path.join("output", "test.html"), "w")
 f.write(html)
 f.close()
-f = open("output/test_rendered.html","w")
+f = open(os.path.join("output", "test_rendered.html"), "w")
 f.write(thtml)
 f.close()
