@@ -10,7 +10,7 @@ as it continues to evolve.
 The current base system requirements prior to installation are:
 
 * Python 2.5, 2.6 or 2.7 (2.4 should also be OK, but has not been tested)
-* `Matplotlib`_ 0.99.1.1 or newer
+* `matplotlib`_ 0.99.1.1 or newer (will be automatically installed if you are going the *easy_install mplh5canvas* route)
 * `pywebsocket`_ 0.6 or newer (will be automatically installed if you are going the *easy_install mplh5canvas* route)
 
 If you want to make use of *easy_install* as suggested in the instructions below, you should install `setuptools`_. Alternatively you can use *pip* instead of *easy_install* by installing the `pip`_ Python package.
@@ -125,7 +125,7 @@ Then open the ``test_rendered.html`` page which will have a side-by-side column
 of PNGs.
 
 .. _pywebsocket: http://code.google.com/p/pywebsocket/
-.. _Matplotlib: http://matplotlib.sourceforge.net/
+.. _matplotlib: http://matplotlib.sourceforge.net/
 .. _setuptools: https://pypi.python.org/pypi/setuptools
 .. _pip: http://www.pip-installer.org/
 .. _netifaces: http://alastairs-place.net/netifaces/

@@ -37,6 +37,6 @@ setup (
                 ],
     packages = find_packages(),
     scripts = [],
-    install_requires = ['mod_pywebsocket'],
+    install_requires = ['matplotlib', 'mod_pywebsocket'],
     zip_safe = False,
 )
