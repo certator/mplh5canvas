@@ -120,10 +120,11 @@ for count, filename in enumerate(files):
     thtml += "</tr>"
 
 print "Finished processing files..."
+ip = mplh5canvas.backend_h5canvas.h5m._external_ip()
 html += "</table><script> var total_plots = " + str(count) + "; "
 pi = """
 function connect() {
-  s = new WebSocket("ws://192.168.184.1:8123");
+  s = new WebSocket("ws://%s:8123");
 }
 
 function put_images() {
@@ -132,7 +133,7 @@ function put_images() {
    s.send(document.getElementById("name_"+i).innerText.split(".py")[0] + ".png " + document.getElementById("canvas_"+i).toDataURL());
    } catch (err) {}
  }
-}"""
+}""" % (ip,)
 html += pi +"</script><input type='button' onclick='put_images()' value='Put Images to server'>"
 html += "<input type='button' onclick='connect()' value='Connect'></body></html>"
 thtml += "</table></body></html>"
